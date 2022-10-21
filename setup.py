@@ -16,5 +16,5 @@ setup(
     author='Brian Hess',
     author_email='brian.hess@snowflake.com',
     license='LICENSE.txt',
-    install_requires=['streamlit', 'snowflake-connector-python', 'snowflake-snowpark-python']
+    install_requires=['streamlit', 'snowflake-connector-python']
 )
