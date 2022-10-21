@@ -10,5 +10,5 @@ from st_connection.snowflake.snowflake_connection import snowflake
 #    session = st.connection.snowflake.session.login()
 # or
 #    session = st.connection.snowflake.session.singleton()
-st.connection.snowflake = snowflake.session
+
 st.connection.snowflake_connection = snowflake.connection
