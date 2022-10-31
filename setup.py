@@ -16,5 +16,5 @@ setup(
     author='Brian Hess',
     author_email='brian.hess@snowflake.com',
     license='LICENSE.txt',
-    install_requires=['streamlit', 'snowflake-connector-python','git+https://github.com/keboola/sapi-python-client.git']
+    install_requires=['streamlit', 'snowflake-connector-python']
 )
