@@ -84,7 +84,7 @@ class _connection:
         
         return get_connection(params, self._connection_impl.__hash__()).get_connection(params)
 
-    def _login_form(self, form_options, options, form_title,disconnected_label="Disconnect"):
+    def _login_form(self, form_options, options, form_title,disconnected_label):
         if self._connection_impl.ST_ERROR in st.session_state:
             st.warning(st.session_state[self._connection_impl.ST_ERROR])
         ST_KEY = self._connection_impl.ST_KEY()
@@ -101,12 +101,12 @@ class _connection:
             st.form_submit_button("Connect", on_click=_callback_and_clear, args=(self._connection_impl.connect_and_cache, ST_FORM_KEY, options))
         st.stop()
 
-    def login(self, form_options = None, options = None, form_title = "Credentials"):
+    def login(self, form_options = None, options = None, form_title = "Credentials",disconnected_label="Disconnect"):
         if not form_options:
             form_options = self._connection_impl.default_form_options()
         if not options:
             options = self._connection_impl.default_options()
-        return self._login_form(form_options, options, form_title)
+        return self._login_form(form_options, options, form_title,disconnected_label)
 
 class connection:
     AbstractConnection = AbstractConnection
