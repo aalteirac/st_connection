@@ -97,8 +97,8 @@ class _connection:
         ST_FORM_KEY = f'{ST_KEY}_FORM'
         with st.form(form_title):
             for k,v in form_options.items():
-                if len(v.split("##"))>0:
-                    st.selectbox(k.capitalize(), options==v.split("##") , key=f"{ST_FORM_KEY}{k}")
+                if type(v)==list:
+                    st.selectbox(k.capitalize(), options=v, key=f"{ST_FORM_KEY}{k}")
                 else:
                     st.text_input(k.capitalize(), value="" if v is None else v, key=f"{ST_FORM_KEY}{k}", type="password" if v is None else "default")
             st.form_submit_button("Connect", on_click=_callback_and_clear, args=(self._connection_impl.connect_and_cache, ST_FORM_KEY, options))
