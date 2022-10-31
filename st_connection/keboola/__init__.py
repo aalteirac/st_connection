@@ -1,5 +1,5 @@
 import streamlit as st
-from st_connection.snowflake.snowflake_connection import snowflake
+from st_connection.keboola.keboola_connection import keboola
 
 # Placing in st.connection for convenience
 # Instantiate a connection with:
@@ -10,4 +10,5 @@ from st_connection.snowflake.snowflake_connection import snowflake
 #    session = st.connection.snowflake.session.login()
 # or
 #    session = st.connection.snowflake.session.singleton()
-st.connection.snowflake_connection = snowflake.connection
+
+st.connection.keboola_connection = keboola.connection
