@@ -4,6 +4,7 @@ from kbcstorage.client import Client
 
 # Implementation that creates Keboola Connector connections
 class KeboolaConnectionImpl(st.connection.AbstractConnection):
+    
     def __init__(self):
         pass
 

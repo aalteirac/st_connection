@@ -4,6 +4,7 @@ from snowflake.connector import SnowflakeConnection, connect
 
 # Implementation that creates Snowflake Connector connections
 class SnowflakeConnectionImpl(st.connection.AbstractConnection):
+    
     def __init__(self):
         pass
 

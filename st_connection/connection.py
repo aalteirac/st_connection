@@ -84,13 +84,13 @@ class _connection:
         
         return get_connection(params, self._connection_impl.__hash__()).get_connection(params)
 
-    def _login_form(self, form_options, options, form_title):
+    def _login_form(self, form_options, options, form_title,disconnected_label="Disconnect"):
         if self._connection_impl.ST_ERROR in st.session_state:
             st.warning(st.session_state[self._connection_impl.ST_ERROR])
         ST_KEY = self._connection_impl.ST_KEY()
         if ST_KEY in st.session_state:
             if self._connection_impl.is_open(st.session_state[ST_KEY]):
-                st.sidebar.button("Disconnect", on_click=self._connection_impl.close_and_clear, args=(st.session_state[ST_KEY],), key=f"Disconnect_{ST_KEY}")
+                st.sidebar.button(disconnected_label, on_click=self._connection_impl.close_and_clear, args=(st.session_state[ST_KEY],), key=f"Disconnect_{ST_KEY}")
                 return st.session_state[ST_KEY]
             else:
                 del st.session_state[ST_KEY]
