@@ -49,7 +49,8 @@ class AbstractConnection(ABC):
 def _callback_and_clear(callback, prefix, options):
     stcreds = {key:val for key,val in st.session_state.items() if key.startswith(prefix)}
     for k,v in stcreds.items():
-        if v != "" and type(v) is not list:
+        if v != "":
+            print(k,prefix,k[len(prefix):],options)
             options[k[len(prefix):]] = v
         del st.session_state[k]
     callback(options)
